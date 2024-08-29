@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Workath</RootNamespace>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>workath_logo.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\delete.png" />
+    <None Remove="Resources\key.png" />
+    <None Remove="Resources\merge.png" />
+    <None Remove="Resources\open_workstamp_icon.ico" />
+    <None Remove="Resources\workath_logo.ico" />
+    <None Remove="Resources\workath_logo_24px.png" />
+    <None Remove="Resources\workstamp_isopen_icon.ico" />
+    <None Remove="workath_logo.psd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\CommonFiles\DBConnections.cs" Link="DBConnections.cs" />
+    <Compile Include="..\CommonFiles\SingleInstanceManager.cs" Link="SingleInstanceManager.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+    <PackageReference Include="MySql.Data" Version="8.0.25" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\delete.png" />
+    <Resource Include="Resources\key.png" />
+    <Resource Include="Resources\merge.png" />
+    <Resource Include="Resources\open_workstamp_icon.ico" />
+    <Resource Include="Resources\workath_logo.ico" />
+    <Resource Include="Resources\workath_logo_24px.png" />
+    <Resource Include="Resources\workstamp_isopen_icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
