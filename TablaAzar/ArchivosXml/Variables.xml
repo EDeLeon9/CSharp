@@ -1,0 +1,14 @@
+<ArrayOfString>
+  <string>browser:default</string>
+  <string>from:20</string>
+  <string>express:1</string> <!-- 1 = Friends -->
+  <string>configweb1:3</string>
+  <string>configweb2:3</string>
+  <string>configweb3:3</string>
+  <string>mainweb1:simpsonizados.xyz/temporada/los-simpson-</string>
+  <string>subweb1:simpsonizados.xyz/episodio/los-simpson--</string>
+  <string>mainweb2:simpsonizados.me/temporada/los-simpson-season-</string>
+  <string>subweb2:simpsonizados.me/capitulo/los-simpson-</string>
+  <string>mainweb3:www.simpsonslatino.online/seasons/los-simpson-season-</string>
+  <string>subweb3:www.simpsonslatino.online/episodes/los-simpson-</string>
+</ArrayOfString>

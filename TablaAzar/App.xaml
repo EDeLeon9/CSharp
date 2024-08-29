@@ -1,0 +1,66 @@
+﻿<Application x:Class="TablaAzar.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TablaAzar"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="TextBlockAlignmentStyle" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="TextBoxAlignmentWithoutEventsStyle" TargetType="TextBox">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        <Style x:Key="TextBoxAlignmentStyle" TargetType="TextBox" BasedOn="{StaticResource TextBoxAlignmentWithoutEventsStyle}">
+            <EventSetter Event="GotFocus" Handler="TextBox_GotFocus"/>
+            <EventSetter Event="KeyDown" Handler="TextBox_KeyDown"/>
+        </Style>
+        <Style x:Key="TextBoxAlignmentPasteStyle" TargetType="TextBox" BasedOn="{StaticResource TextBoxAlignmentWithoutEventsStyle}">
+            <EventSetter Event="GotFocus" Handler="TextBox_GotFocus_AutoPaste"/>
+            <EventSetter Event="KeyDown" Handler="TextBox_KeyDown"/>
+        </Style>
+
+        <Style x:Key="TextBlockAlignmentNumberStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockAlignmentStyle}">
+            <Setter Property="TextAlignment" Value="Right"/>
+        </Style>
+        <Style x:Key="TextBoxAlignmentNumberStyle" TargetType="TextBox" BasedOn="{StaticResource TextBoxAlignmentStyle}">
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        </Style>
+
+        <Style TargetType="DataGridCell">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <!--Es para que al abrir el menú con el click derecho se mantenga el mismo color ya que al parecer pierde focus-->
+                    <Setter Property="Background" Value="#0078D7"/>
+                    <Setter Property="BorderBrush" Value="#0078D7"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="RoundedCornerButtonStyle" TargetType="Button">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Style.Resources>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#b30000"/>
+            <Setter Property="FontSize" Value="9.5"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="2"/>
+            <!--<Setter Property="Height" Value="18"/>-->
+            <Setter Property="Height" Value="25"/> <!-- Para probar ancho al seleccionar -->
+            <Setter Property="Width" Value="17"/>
+            <Setter Property="Content" Value="X"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+    </Application.Resources>
+</Application>

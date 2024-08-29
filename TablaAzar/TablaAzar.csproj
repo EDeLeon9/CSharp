@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>t_azar_icon.ico</ApplicationIcon>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ArchivosXml\NewFolder1\**" />
+    <Compile Remove="ArchivosXml\NewFolder2\**" />
+    <Compile Remove="ArchivosXml\NewFolder\**" />
+    <EmbeddedResource Remove="ArchivosXml\NewFolder1\**" />
+    <EmbeddedResource Remove="ArchivosXml\NewFolder2\**" />
+    <EmbeddedResource Remove="ArchivosXml\NewFolder\**" />
+    <None Remove="ArchivosXml\NewFolder1\**" />
+    <None Remove="ArchivosXml\NewFolder2\**" />
+    <None Remove="ArchivosXml\NewFolder\**" />
+    <Page Remove="ArchivosXml\NewFolder1\**" />
+    <Page Remove="ArchivosXml\NewFolder2\**" />
+    <Page Remove="ArchivosXml\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\hide.png" />
+    <None Remove="Resources\multimedia.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\CommonFiles\SingleInstanceManager.cs" Link="SingleInstanceManager.cs" />
+    <Compile Include="..\CommonFiles\ToastMessage.xaml.cs" Link="ToastMessage.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="..\CommonFiles\ToastMessage.xaml" Link="ToastMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\hide.png" />
+    <Resource Include="Resources\multimedia.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

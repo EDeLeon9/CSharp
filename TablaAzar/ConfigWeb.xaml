@@ -1,0 +1,62 @@
+﻿<Page x:Class="TablaAzar.ConfigWeb"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TablaAzar"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ConfigWeb">
+
+    <Grid Margin="18">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Configuración de Webs" FontSize="20"/>
+
+        <Border Grid.Row="1" BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Padding="15" VerticalAlignment="Top">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Sitio Web 1:" FontSize="15" Margin="0,0,10,0" FontWeight="Bold"/>
+                    <DockPanel LastChildFill="False">
+                        <RadioButton Checked="RadioButtonChecked" x:Name="rdoDireccionWeb1" VerticalContentAlignment="Center" GroupName="OpcionConfigWeb1" Content="Dirección"/>
+                        <RadioButton Checked="RadioButtonChecked" x:Name="rdoDireccionDosCifrasWeb1" VerticalContentAlignment="Center" GroupName="OpcionConfigWeb1" Content="Dirección dos cifras" Margin="5,0"/>
+                        <RadioButton Checked="RadioButtonChecked" x:Name="rdoTemporadaXCapituloWeb1" VerticalContentAlignment="Center" GroupName="OpcionConfigWeb1" Content="TemporadaXCapítulo" Margin="5,0"/>
+                    </DockPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Sitio Web 2:" FontSize="15" Margin="0,0,10,0" FontWeight="Bold"/>
+                    <DockPanel LastChildFill="False">
+                        <RadioButton Checked="RadioButtonChecked" x:Name="rdoDireccionWeb2" VerticalContentAlignment="Center" GroupName="OpcionConfigWeb2" Content="Dirección"/>
+                        <RadioButton Checked="RadioButtonChecked" x:Name="rdoDireccionDosCifrasWeb2" VerticalContentAlignment="Center" GroupName="OpcionConfigWeb2" Content="Dirección dos cifras" Margin="5,0"/>
+                        <RadioButton Checked="RadioButtonChecked" x:Name="rdoTemporadaXCapituloWeb2" VerticalContentAlignment="Center" GroupName="OpcionConfigWeb2" Content="TemporadaXCapítulo" Margin="5,0"/>
+                    </DockPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Sitio Web 3:" FontSize="15" Margin="0,0,10,0" FontWeight="Bold"/>
+                    <DockPanel LastChildFill="False">
+                        <RadioButton Checked="RadioButtonChecked" x:Name="rdoDireccionWeb3" VerticalContentAlignment="Center" GroupName="OpcionConfigWeb3" Content="Dirección"/>
+                        <RadioButton Checked="RadioButtonChecked" x:Name="rdoDireccionDosCifrasWeb3" VerticalContentAlignment="Center" GroupName="OpcionConfigWeb3" Content="Dirección dos cifras" Margin="5,0"/>
+                        <RadioButton Checked="RadioButtonChecked" x:Name="rdoTemporadaXCapituloWeb3" VerticalContentAlignment="Center" GroupName="OpcionConfigWeb3" Content="TemporadaXCapítulo" Margin="5,0"/>
+                    </DockPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <DockPanel Grid.Row="2" Margin="0,15,0,0" LastChildFill="False">
+            <Button
+                x:Name="btnRegresar"
+                Width="110"
+                Margin="0,0,15,0"
+                Click="btnRegresar_Click"
+                Content="Regresar"
+                DockPanel.Dock="Left"
+                FontSize="15" />
+        </DockPanel>
+    </Grid>
+</Page>
