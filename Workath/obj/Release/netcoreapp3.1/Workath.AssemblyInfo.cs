@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Workath")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e184c007d907b2a7d7803337bc41f7e5581cd987")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb9f687202b6b452b7bc4f18613d00d2e418b22c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Workath")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Workath")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
