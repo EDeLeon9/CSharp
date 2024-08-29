@@ -1,0 +1,59 @@
+{
+    "author1": {
+        "id": 1,
+        "name": "AutName n1",
+        "book": {
+            "id": 1,
+            "title": "BkName1",
+            "pages": 100
+        },
+        "magazines": [
+            {
+                "id": 1,
+                "datetime": "2021-01-11T12:24:11.6613219-05:00"
+            },
+            {
+                "id": 2,
+                "datetime": "2021-01-11T12:24:11.6614243-05:00"
+            }
+        ]
+    },
+    "author2": {
+        "id": 2,
+        "name": "AutName n2",
+        "book": {
+            "id": 2,
+            "title": "BkName2",
+            "pages": 200
+        },
+        "magazines": [
+            {
+                "id": 2,
+                "datetime": "2021-01-11T12:24:11.6710475-05:00"
+            },
+            {
+                "id": 4,
+                "datetime": "2021-01-11T12:24:11.6710537-05:00"
+            }
+        ]
+    },
+    "author3": {
+        "id": 3,
+        "name": "AutName n3",
+        "book": {
+            "id": 3,
+            "title": "BkName3",
+            "pages": 300
+        },
+        "magazines": [
+            {
+                "id": 3,
+                "datetime": "2021-01-11T12:24:11.6759648-05:00"
+            },
+            {
+                "id": 6,
+                "datetime": "2021-01-11T12:24:11.6759724-05:00"
+            }
+        ]
+    }
+}

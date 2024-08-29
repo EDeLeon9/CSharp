@@ -1,0 +1,119 @@
+﻿<Window x:Class="InstaDataProcessor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InstaDataProcessor"
+        mc:Ignorable="d"
+        Title="InstaData Processor" WindowStartupLocation="CenterScreen" Height="850" Width="900" MinHeight="350" MinWidth="900">
+    <Grid Margin="24,14,24,24">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Margin="0,0,0,4" Text="InstaData Processor" FontSize="22" FontWeight="Bold"/>
+        <Separator Grid.Row="0" VerticalAlignment="Bottom"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Text="Following: " VerticalAlignment="Center" FontSize="13"/>
+            <ComboBox x:Name="cboFollowing" VerticalAlignment="Center" Width="110" SelectionChanged="FillIgUserCollection">
+                <ComboBoxItem Content="All" IsSelected="True"/>
+                <ComboBoxItem Content="Only following"/>
+                <ComboBoxItem Content="No following"/>
+            </ComboBox>
+
+            <TextBlock Text="Follows you: " VerticalAlignment="Center" FontSize="13" Margin="20,0,0,0"/>
+            <ComboBox x:Name="cboFollowsYou" VerticalAlignment="Center" Width="120" SelectionChanged="FillIgUserCollection">
+                <ComboBoxItem Content="All" IsSelected="True"/>
+                <ComboBoxItem Content="Only follows you"/>
+                <ComboBoxItem Content="No follows you"/>
+            </ComboBox>
+
+            <TextBlock Text="Checked: " VerticalAlignment="Center" FontSize="13" Margin="20,0,0,0"/>
+            <ComboBox x:Name="cboChecked" VerticalAlignment="Center" Width="120" SelectionChanged="FillIgUserCollection">
+                <ComboBoxItem Content="All" IsSelected="True"/>
+                <ComboBoxItem Content="Only checked"/>
+                <ComboBoxItem Content="Only unchecked"/>
+            </ComboBox>
+
+            <TextBlock Text="White list: " VerticalAlignment="Center" FontSize="13" Margin="20,0,0,0"/>
+            <ComboBox x:Name="cboWhiteList" VerticalAlignment="Center" Width="125" SelectionChanged="FillIgUserCollection">
+                <ComboBoxItem Content="All"/>
+                <ComboBoxItem Content="Only white listed"/>
+                <ComboBoxItem Content="No white listed" IsSelected="True"/>
+            </ComboBox>
+        </StackPanel>
+
+        <DataGrid x:Name="grdIgUsers" Grid.Row="2" HeadersVisibility="Column" CanUserAddRows="False" CanUserDeleteRows="False" SelectionMode="Extended"
+                  AutoGenerateColumns="False" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray"
+                  RowHeaderWidth="0">
+                  <!--Se coloca RowHeaderWidth="0" para corregir un bug cuando el scrollbar está al final y se actualiza la tabla haciendo que salgan filas descuadradas--> 
+            
+            <DataGrid.Resources>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+
+                <ContextMenu x:Key="DataGridContextMenu">
+                    <MenuItem Header="Copy link and username" Click="MenuItemCopy_Click"/>
+                    <MenuItem Header="Set checked" Click="MenuItemSetChecked_Click"/>
+                    <MenuItem Header="Set white listed" Click="MenuItemSetWhiteList_Click"/>
+                </ContextMenu>
+            </DataGrid.Resources>
+
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="RoyalBlue"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="BorderBrush" Value="RoyalBlue"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
+
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="ContextMenu" Value="{StaticResource DataGridContextMenu}"/>
+                </Style>
+            </DataGrid.RowStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Link" Width="100" IsReadOnly="True" Binding="{Binding Link}"/>
+                <DataGridTextColumn Header="Username" Width="1*" IsReadOnly="True" Binding="{Binding Username}"/>
+                <DataGridCheckBoxColumn Header="Following" Width="100" IsReadOnly="True" Binding="{Binding Following}"/>
+                <DataGridCheckBoxColumn Header="Follows You" Width="100" IsReadOnly="True" Binding="{Binding FollowsYou}"/>
+                <DataGridCheckBoxColumn Header="Checked" Width="100" IsReadOnly="False" Binding="{Binding UserChecked}"/>
+                <DataGridCheckBoxColumn Header="White Listed" Width="100" IsReadOnly="False" Binding="{Binding WhiteListed}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Text="Row Count:" Margin="0,0,5,0"/>
+            <TextBlock x:Name="txtRowCount" Text="0"/>
+        </StackPanel>
+
+        <Grid Grid.Row="5">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnFollowingsFollowers" Content="Followings &amp; Followers" Width="155" HorizontalAlignment="Left" Background="DarkGreen" Foreground="White" FontWeight="Bold" Click="btnFollowingsFollowers_Click"/>
+                <CheckBox x:Name="chkOldMethod" Content="Old Method" FontStyle="Italic"  Margin="10,0,0,0" VerticalAlignment="Center"/>
+            </StackPanel>
+            <Button x:Name="btnSaveChanges" Width="130" HorizontalAlignment="Right" FontWeight="Bold" Click="btnSaveChanges_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Save Changes" Margin="0,0,7,0" VerticalAlignment="Center"/>
+                    <Image Margin="0,4" Source="/Resources/diskette.png"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
